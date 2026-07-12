@@ -1,0 +1,518 @@
+:root {
+  --orange: #ff8a2b;
+  --gold: #ffc84d;
+  --cream: #fff4dc;
+  --brown: #43291c;
+  --panel: rgba(255, 255, 255, 0.93);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: system-ui, -apple-system, "Noto Sans TC",
+    "Microsoft JhengHei", sans-serif;
+  background: #17100c;
+  color: var(--brown);
+  overflow-x: hidden;
+}
+
+button {
+  border: 0;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+#app {
+  position: relative;
+  width: min(100%, 520px);
+  min-height: 100vh;
+  margin: auto;
+  background:
+    radial-gradient(circle at 50% 0, #fffaf0, transparent 40%),
+    linear-gradient(160deg, #fff0cf, #f4a14d);
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.screen.active {
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* 開場 */
+
+.splash-screen {
+  position: relative;
+  padding-top: 70px;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 30%, #304879, transparent 35%),
+    linear-gradient(#11162b, #05070d);
+}
+
+.space-stars::before,
+.space-stars::after {
+  content: "✦　✧　✦　✧　✦　✧";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 9%;
+  color: #ffd76a;
+  font-size: 25px;
+  opacity: 0.75;
+  animation: twinkle 1.4s infinite alternate;
+}
+
+.space-stars::after {
+  top: 65%;
+  transform: rotate(10deg);
+}
+
+@keyframes twinkle {
+  to {
+    opacity: 0.2;
+  }
+}
+
+.logo-circle {
+  width: 190px;
+  height: 190px;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffffff, #ffe2a8);
+  box-shadow:
+    0 0 0 8px rgba(255, 196, 74, 0.2),
+    0 15px 45px rgba(0, 0, 0, 0.45);
+  animation: floating 2.5s ease-in-out infinite;
+}
+
+.feiji-face {
+  font-size: 112px;
+}
+
+@keyframes floating {
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+.splash-screen h1 {
+  margin: 24px 0 2px;
+  font-size: 34px;
+  text-shadow: 0 4px 12px #000000;
+}
+
+.version {
+  margin: 4px 0 25px;
+  color: #ffd76a;
+}
+
+/* 按鈕 */
+
+.primary-button,
+.menu-buttons button,
+.modal-card button {
+  width: 100%;
+  margin-top: 11px;
+  padding: 15px 16px;
+  border-radius: 17px;
+  background: white;
+  color: var(--brown);
+  box-shadow: 0 8px 20px rgba(72, 38, 14, 0.18);
+}
+
+.primary-button {
+  color: white;
+  font-size: 18px;
+  background: linear-gradient(135deg, var(--orange), var(--gold));
+}
+
+/* 首頁 */
+
+.home-screen {
+  padding-top: 45px;
+  text-align: center;
+}
+
+.home-logo {
+  width: 165px;
+  height: 165px;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 105px;
+  background: linear-gradient(145deg, #ffffff, #ffe0a3);
+  box-shadow: 0 14px 35px rgba(78, 39, 12, 0.25);
+}
+
+.home-screen h2 {
+  margin: 22px 0 5px;
+  font-size: 28px;
+}
+
+.subtitle {
+  margin: 0 0 18px;
+  color: #7d563d;
+  line-height: 1.6;
+}
+
+.menu-buttons {
+  display: grid;
+}
+
+.alpha-label {
+  margin-top: 24px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* 頁面標題 */
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.page-header h2 {
+  margin: 0;
+}
+
+.small-button {
+  width: 47px;
+  height: 47px;
+  border-radius: 14px;
+  background: white;
+  font-size: 22px;
+  box-shadow: 0 6px 16px rgba(50, 25, 10, 0.15);
+}
+
+/* 世界地圖 */
+
+.world-map {
+  display: grid;
+  gap: 15px;
+  padding-bottom: 35px;
+}
+
+.world-section {
+  padding: 16px;
+  border-radius: 22px;
+  color: white;
+  box-shadow: 0 10px 24px rgba(40, 20, 10, 0.22);
+}
+
+.world-section h3 {
+  margin: 0 0 12px;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 9px;
+}
+
+.level-button {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  color: var(--brown);
+  background: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.18);
+}
+
+.level-button.locked {
+  opacity: 0.38;
+  filter: grayscale(1);
+}
+
+/* 遊戲上方資訊 */
+
+.game-header {
+  display: grid;
+  grid-template-columns: 48px repeat(3, 1fr);
+  align-items: center;
+  gap: 8px;
+}
+
+.status-box {
+  padding: 7px 4px;
+  text-align: center;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 6px 15px rgba(56, 29, 10, 0.14);
+}
+
+.status-box small {
+  display: block;
+  color: #866049;
+  font-size: 11px;
+}
+
+.status-box strong {
+  font-size: 19px;
+}
+
+/* 目標 */
+
+.goal-panel,
+.boss-panel {
+  padding: 13px;
+  margin-top: 10px;
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: 0 8px 18px rgba(65, 32, 10, 0.15);
+}
+
+.goal-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-weight: 900;
+}
+
+.progress-track,
+.boss-health-track {
+  height: 11px;
+  margin-top: 9px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #ead5bf;
+}
+
+.progress-fill,
+.boss-health-fill {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.25s;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #ff8b2c, #ffd45c);
+}
+
+/* Boss */
+
+.boss-panel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.boss-face {
+  font-size: 52px;
+}
+
+.boss-details {
+  flex: 1;
+}
+
+.boss-health-fill {
+  width: 100%;
+  background: linear-gradient(90deg, #d93636, #ff7653);
+}
+
+/* Combo */
+
+.combo-text {
+  height: 31px;
+  display: grid;
+  place-items: center;
+  color: #e94c23;
+  font-size: 23px;
+  font-weight: 1000;
+  text-shadow: 0 2px white;
+}
+
+/* 棋盤 */
+
+.game-board {
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 5px;
+  padding: 8px;
+  border-radius: 24px;
+  background: rgba(79, 42, 18, 0.23);
+  box-shadow:
+    inset 0 4px 14px rgba(58, 27, 7, 0.2),
+    0 13px 26px rgba(58, 27, 7, 0.22);
+  touch-action: manipulation;
+}
+
+.tile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  font-size: clamp(24px, 7vw, 38px);
+  background: linear-gradient(145deg, #ffffff, #ffe3b1);
+  box-shadow:
+    inset 0 -3px 0 rgba(82, 43, 15, 0.09),
+    0 3px 6px rgba(75, 36, 10, 0.1);
+  transition:
+    transform 0.16s,
+    opacity 0.16s;
+}
+
+.tile.selected {
+  z-index: 2;
+  transform: scale(0.84);
+  outline: 4px solid #ff7e28;
+}
+
+.tile.removing {
+  transform: scale(0.08) rotate(25deg);
+  opacity: 0.08;
+}
+
+.tile.rocket::after {
+  content: "↔";
+  position: absolute;
+  right: 2px;
+  bottom: 0;
+  color: #d72f2f;
+  font-size: 14px;
+}
+
+.tile.rainbow {
+  background: conic-gradient(
+    #ff6666,
+    #ffd83d,
+    #67e894,
+    #65c7ff,
+    #be80ff,
+    #ff6666
+  );
+}
+
+.tile.rainbow::after {
+  content: "✦";
+  color: white;
+  font-size: 24px;
+  text-shadow: 0 2px 5px #333333;
+}
+
+/* 道具 */
+
+.power-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.25fr;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.power-buttons button {
+  padding: 9px 4px;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 6px 15px rgba(55, 28, 10, 0.15);
+}
+
+.power-buttons button.active {
+  background: #ffe171;
+}
+
+.power-buttons small,
+.power-buttons strong {
+  display: block;
+  font-size: 11px;
+}
+
+/* 結果視窗 */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 19px;
+  background: rgba(22, 12, 7, 0.7);
+}
+
+.modal-card {
+  width: min(100%, 390px);
+  padding: 25px;
+  text-align: center;
+  border-radius: 27px;
+  background: #fff8e9;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.4);
+}
+
+.result-icon {
+  font-size: 70px;
+}
+
+.modal-card h2 {
+  margin: 7px 0;
+  font-size: 29px;
+}
+
+.modal-card p {
+  line-height: 1.6;
+}
+
+/* 提示 */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 30;
+  padding: 11px 18px;
+  color: white;
+  font-weight: 800;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 99px;
+  background: #302017;
+  transform: translate(-50%, 20px);
+  transition: 0.25s;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 370px) {
+  .screen {
+    padding: 11px;
+  }
+
+  .game-board {
+    gap: 3px;
+    padding: 6px;
+  }
+
+  .tile {
+    border-radius: 10px;
+  }
+
+  .goal-title {
+    font-size: 13px;
+  }
+}
