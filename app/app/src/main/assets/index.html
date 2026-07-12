@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+  >
+
+  <title>BabyFeiJi Puzzle V3</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main id="app">
+
+    <!-- 開場畫面 -->
+    <section id="splashScreen" class="screen active splash-screen">
+
+      <div class="space-stars"></div>
+
+      <div class="logo-circle">
+        <div class="feiji-face">🐱</div>
+      </div>
+
+      <h1>BabyFeiJi Puzzle</h1>
+
+      <p class="version">V3.0 Alpha</p>
+
+      <button id="enterButton" class="primary-button">
+        點擊開始
+      </button>
+
+    </section>
+
+
+    <!-- 首頁 -->
+    <section id="homeScreen" class="screen home-screen">
+
+      <div class="home-logo">🐱</div>
+
+      <h2>肥吉宇宙大冒險</h2>
+
+      <p class="subtitle">
+        收集 BFJ 能量，擊敗黑暗狗狗軍團！
+      </p>
+
+      <div class="menu-buttons">
+
+        <button id="startButton" class="primary-button">
+          ▶ 開始遊戲
+        </button>
+
+        <button id="continueButton">
+          🗺 繼續挑戰
+        </button>
+
+        <button id="mapButton">
+          🌍 世界地圖
+        </button>
+
+        <button id="dailyButton">
+          🎁 每日獎勵
+        </button>
+
+      </div>
+
+      <p class="alpha-label">
+        BabyFeiJi Puzzle V3.0 Alpha
+      </p>
+
+    </section>
+
+
+    <!-- 世界地圖 -->
+    <section id="mapScreen" class="screen">
+
+      <header class="page-header">
+
+        <button id="mapBackButton" class="small-button">
+          ←
+        </button>
+
+        <h2>世界地圖</h2>
+
+      </header>
+
+      <div id="worldMap" class="world-map"></div>
+
+    </section>
+
+
+    <!-- 遊戲畫面 -->
+    <section id="gameScreen" class="screen game-screen">
+
+      <header class="game-header">
+
+        <button id="homeButton" class="small-button">
+          ⌂
+        </button>
+
+        <div class="status-box">
+          <small>關卡</small>
+          <strong id="levelLabel">1</strong>
+        </div>
+
+        <div class="status-box">
+          <small>分數</small>
+          <strong id="scoreLabel">0</strong>
+        </div>
+
+        <div class="status-box">
+          <small>步數</small>
+          <strong id="movesLabel">25</strong>
+        </div>
+
+      </header>
+
+
+      <section class="goal-panel">
+
+        <div class="goal-title">
+
+          <span id="chapterLabel">
+            城市公園
+          </span>
+
+          <span id="goalLabel">
+            收集 20 個 🐟
+          </span>
+
+        </div>
+
+        <div class="progress-track">
+          <div id="goalProgress" class="progress-fill"></div>
+        </div>
+
+      </section>
+
+
+      <section id="bossPanel" class="boss-panel hidden">
+
+        <div id="bossFace" class="boss-face">
+          🐶
+        </div>
+
+        <div class="boss-details">
+
+          <strong id="bossName">
+            黑狗隊長
+          </strong>
+
+          <div class="boss-health-track">
+            <div id="bossHealth" class="boss-health-fill"></div>
+          </div>
+
+          <small id="bossHealthText">
+            100 / 100
+          </small>
+
+        </div>
+
+      </section>
+
+
+      <div id="comboText" class="combo-text"></div>
+
+      <div id="gameBoard" class="game-board"></div>
+
+
+      <div class="power-buttons">
+
+        <button id="shuffleButton">
+          🔀
+          <small>洗牌</small>
+          <strong id="shuffleCount">3</strong>
+        </button>
+
+        <button id="hammerButton">
+          🔨
+          <small>鐵鎚</small>
+          <strong id="hammerCount">3</strong>
+        </button>
+
+        <button id="skillButton">
+          🐱
+          <small>肥吉大絕</small>
+          <strong id="skillCharge">0%</strong>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- 過關與失敗視窗 -->
+    <div id="resultModal" class="modal hidden">
+
+      <div class="modal-card">
+
+        <div id="resultIcon" class="result-icon">
+          🎉
+        </div>
+
+        <h2 id="resultTitle">
+          過關成功！
+        </h2>
+
+        <p id="resultText"></p>
+
+        <button id="resultPrimaryButton" class="primary-button">
+          下一關
+        </button>
+
+        <button id="resultHomeButton">
+          回首頁
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div id="toast" class="toast"></div>
+
+  </main>
+
+  <script src="game.js"></script>
+
+</body>
+</html>
